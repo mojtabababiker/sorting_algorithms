@@ -10,7 +10,7 @@
 int selector(int *arr, size_t i, size_t size)
 {
   size_t j = i;
-  int sml_index = j;
+  int sml_index = i;
   
   for (j = i ; j < size ; j++)
     {
