@@ -2,7 +2,9 @@
 #include <stdbool.h>
 
 /**
- *
+ * bubble_sort - sort array of integer using the Bubble Sort algrothim
+ * @array: the array of integer to be sorted
+ * @size: the size of the array
  */
 
 void bubble_sort(int *array, size_t size)
@@ -28,7 +30,6 @@ void bubble_sort(int *array, size_t size)
 	      swaped = true;
 	    }
 	}
-
       if (!swaped)
 	break;
     }
