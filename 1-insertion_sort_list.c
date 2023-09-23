@@ -2,6 +2,13 @@
 
 void swaps(listint_t **list, listint_t *temps, listint_t *current);
 
+
+/**
+ * insertion_sort_list - sort a doubleyLinked list of integer in
+ *                       ascending prder using insertion sort
+ * @list: pointer to the head of the linkedList
+ */
+
 void insertion_sort_list(listint_t **list){
 
   /* defind *current, *temps; */
@@ -27,7 +34,6 @@ void insertion_sort_list(listint_t **list){
       /* swap temps and current by calling swaps() */
       swaps(list, temps, current);
 
-      // TODO: GET THE TEMP VALUE AFTER SWAPS
       temps = current->prev;
       
       /* print the list */
@@ -43,6 +49,12 @@ void insertion_sort_list(listint_t **list){
 
 }
 
+/**
+ * swaps - compires the current node value with all its prevouses and
+ *          swap between them if thire order incorrect
+ * @current: pointer to the current node
+ * @list: a pointer to the head of the nodes list
+ */
 
 void swaps(listint_t **list, listint_t *temps, listint_t *current){
 
