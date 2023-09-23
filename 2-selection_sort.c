@@ -7,9 +7,9 @@
  * @size: the size of the array
  * Return: the index of the selceted number
  */
-int selector(int *arr, size_t i, size_t size)
+int selector(int *arr, size_t i, int size)
 {
-  size_t j = i;
+  int j = i;
   int sml_index = i;
   
   for (j = i ; j < size ; j++)
@@ -29,15 +29,16 @@ int selector(int *arr, size_t i, size_t size)
 
 void selection_sort(int *arr, size_t size)
 {
-  size_t i;
+  int i, _size;
   int temp, sml_index;
 
+  _size  = size;
   if (arr == NULL || size < 2)
     return;
 
-  for (i = 0 ; i < size ; i++)
+  for (i = 0 ; i < _size ; i++)
     {
-      sml_index = selector(arr, i, size);
+      sml_index = selector(arr, i, _size);
       temp = arr[sml_index];
       arr[sml_index] = arr[i];
       arr[i] = temp;
