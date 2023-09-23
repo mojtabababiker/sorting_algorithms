@@ -39,9 +39,12 @@ void selection_sort(int *arr, size_t size)
   for (i = 0 ; i < _size ; i++)
     {
       sml_index = selector(arr, i, _size);
-      temp = arr[sml_index];
-      arr[sml_index] = arr[i];
-      arr[i] = temp;
-      print_array(arr, size);
+      if (sml_index != i)
+	{
+	  temp = arr[sml_index];
+	  arr[sml_index] = arr[i];
+	  arr[i] = temp;
+	  print_array(arr, size);
+	}
     }
 }
