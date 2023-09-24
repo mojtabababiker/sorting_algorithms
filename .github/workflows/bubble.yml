@@ -16,8 +16,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Install CMake
-        run: sudo apt-get install cmake -y
+      - name: Install Betty
+        run: |
+          git clone https://github.com/holbertonschool/Betty.git
+          sudo cp Betty/style/betty-style.pl /usr/local/bin/
+          sudo cp Betty/style/betty-doc.pl /usr/local/bin/
+          sudo chmod +x /usr/local/bin/betty-style.pl
+          sudo chmod +x /usr/local/bin/betty-doc.pl
+
+      - name: Check Betty Style
+        run: |
+          betty-style.pl *.c *.h
+          betty-doc.pl *.c *.h
 
       - name: Build
         run: |
