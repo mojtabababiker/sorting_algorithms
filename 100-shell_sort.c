@@ -33,7 +33,7 @@ void shell_sort(int *arr, size_t size)
 }
 
 /**
- * swaper -swap two number
+ * swaper - swap two number
  * @arr: the array of integer to swap at
  * @index_1: the first number
  * @index_2: the second number
