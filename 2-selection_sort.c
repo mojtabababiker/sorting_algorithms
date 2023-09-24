@@ -1,4 +1,5 @@
 #include "sort.h"
+
 /**
  * selection_sort - Sorts array of int
  * @array: Array to be sorted
@@ -26,12 +27,13 @@ void selection_sort(int *array, size_t size)
 
 /**
  * swap - swaps two numbers
- * @val1 : First no
- * @val2 : Second no
+ * @val1 : First number
+ * @val2 : Second number
  */
 void swap(int *val1, int *val2)
 {
 	int temp = *val1;
+
 	*val1 = *val2;
 	*val2 = temp;
 }

@@ -1,8 +1,8 @@
 #include "sort.h"
 
 /**
- * partitioning - partitioning the array according to aa randome
- *	   	  selected number called pivot
+ * partitioning - partitioning the array according to a
+ *	   	  randome selected number called pivot
  * @arr: the array to be partitioned
  * @lo: the start of the array
  * @hi: the end of the array
@@ -11,33 +11,32 @@
 
 int partitioning(int *arr, int lo, int hi, size_t size)
 {
-	int hd= lo, tl = lo - 1;
+	int head= lo, tail = lo - 1;
 	int pivot = arr[hi], temp = 0;
 
-	while (hd <= hi)
+	while (head <= hi)
 	{
-		if (arr[hd] <= pivot)
+		if (arr[head] <= pivot)
 		{
-			/*swap the element in hd and t +1*/
-			tl++;
-			temp = arr[tl];
-			arr[tl] = arr[hd];
-			arr[hd] = temp;
-			if (arr[hd] != arr[tl])
+			tail++;
+			temp = arr[tail];
+			arr[tail] = arr[head];
+			arr[head] = temp;
+			if (arr[head] != arr[tail])
 				print_array(arr, size);
 		}
-		hd++;
+		head++;
 	}
-	return (tl);
+	return (tail);
 }
 
 
 /**
  * quickSort - recursive quick sort algrothim
  * @arr: the arr to be sorted
- * @hi: the	last index on the arr
  * @lo: the first index on the arr
- * @size: the	size of the array
+ * @hi: the last index on the arr
+ * @size: the size of the array
  */
 
 void quickSort(int *arr, int lo, int hi, size_t size)
@@ -53,8 +52,8 @@ void quickSort(int *arr, int lo, int hi, size_t size)
 }
 
 /**
- * quick_sort - sort array of integer in ascending order using
- *		Quick sort algrothim
+ * quick_sort - sort array of integer in ascending order
+ * 		using Quick sort algrothim
  * @arr: array of integer that will be sorted
  * @size: the size of the array
  */
