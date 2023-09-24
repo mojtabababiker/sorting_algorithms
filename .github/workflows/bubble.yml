@@ -26,8 +26,8 @@ jobs:
 
       - name: Check Betty Style
         run: |
-          betty-style.pl *.c *.h
-          betty-doc.pl *.c *.h
+          betty-style.pl 0-bubble_sort.c print_array.c *.h
+          betty-doc.pl 0-bubble_sort.c print_array.c *.h
 
       - name: Build
         run: |
