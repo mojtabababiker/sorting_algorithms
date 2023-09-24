@@ -2,33 +2,32 @@
 
 /**
  * partitioning - partitioning the array according to aa randome
- *								selected number called pivot
+ *	   	  selected number called pivot
  * @arr: the array to be partitioned
  * @lo: the start of the array
  * @hi: the end of the array
  * Return: the index of the pivot
  */
 
-int partitioning(int *arr, int lo, int hi)
+int partitioning(int *arr, int lo, int hi, size_t size)
 {
 	int hd= lo, tl = lo - 1;
 	int pivot = arr[hi], temp = 0;
 
 	while (hd <= hi)
-		{
-			if (arr[hd] <= pivot)
 	{
-
-		/*swap the element in hd and t +1*/
-		tl++;
-		temp = arr[tl];
-		arr[tl] = arr[hd];
-		arr[hd] = temp;
-
-	}
-			hd++;
+		if (arr[hd] <= pivot)
+		{
+			/*swap the element in hd and t +1*/
+			tl++;
+			temp = arr[tl];
+			arr[tl] = arr[hd];
+			arr[hd] = temp;
+			if (arr[hd] != arr[tl])
+				print_array(arr, size);
 		}
-
+		hd++;
+	}
 	return (tl);
 }
 
@@ -47,25 +46,27 @@ void quickSort(int *arr, int lo, int hi, size_t size)
 
 	if (hi <= lo)
 		return;
-	
-	pivot = partitioning(arr, lo, hi);
-	print_array(arr, size);
+
+	pivot = partitioning(arr, lo, hi, size);
 	quickSort(arr, lo, pivot - 1, size);
 	quickSort(arr, pivot + 1, hi, size);
-
 }
 
 /**
  * quick_sort - sort array of integer in ascending order using
- *							Quick sort algrothim
+ *		Quick sort algrothim
  * @arr: array of integer that will be sorted
  * @size: the size of the array
  */
 
 void quick_sort(int *arr, size_t size)
 {
-	int lo = 0;
-	int hi = size - 1;
+	int lo;
+	int hi;
 
+	if (arr == NULL || size < 2)
+		return;
+	lo = 0;
+	hi = size - 1;
 	quickSort(arr, lo, hi, size);
 }
