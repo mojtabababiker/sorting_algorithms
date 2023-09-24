@@ -18,9 +18,9 @@ jobs:
 
       - name: Install Betty
         run: |
-          git clone https://github.com/holbertonschool/Betty.git
-          sudo cp Betty/style/betty-style.pl /usr/local/bin/
-          sudo cp Betty/style/betty-doc.pl /usr/local/bin/
+          git clone https://github.com/alx-tools/Betty.git
+          sudo cp Betty/betty-style.pl /usr/local/bin/
+          sudo cp Betty/betty-doc.pl /usr/local/bin/
           sudo chmod +x /usr/local/bin/betty-style.pl
           sudo chmod +x /usr/local/bin/betty-doc.pl
 
