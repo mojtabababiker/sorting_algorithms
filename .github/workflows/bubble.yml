@@ -16,8 +16,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up C environment
-        uses: actions/setup-cmake@v1
+      - name: Install CMake
+        run: sudo apt-get install cmake -y
 
       - name: Build
         run: |
