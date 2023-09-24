@@ -1,0 +1,39 @@
+name: Build and Test Bubble Sort
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install Betty
+        run: |
+          git clone https://github.com/alx-tools/Betty.git
+          sudo cp Betty/betty-style.pl /usr/local/bin/
+          sudo cp Betty/betty-doc.pl /usr/local/bin/
+          sudo chmod +x /usr/local/bin/betty-style.pl
+          sudo chmod +x /usr/local/bin/betty-doc.pl
+
+      - name: Check Betty Style
+        run: |
+          betty-style.pl 0-bubble_sort.c print_array.c *.h
+          betty-doc.pl 0-bubble_sort.c print_array.c *.h
+
+      - name: Build
+        run: |
+          gcc -Wall -Wextra -Werror -pedantic -std=gnu89 \
+            0-bubble_sort.c tests/0-main.c print_array.c -o bubble
+
+      - name: Test
+        run: |
+          ./bubble

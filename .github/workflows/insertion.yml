@@ -1,0 +1,39 @@
+name: Build and Test Insertioin Sort
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install Betty
+        run: |
+          git clone https://github.com/alx-tools/Betty.git
+          sudo cp Betty/betty-style.pl /usr/local/bin/
+          sudo cp Betty/betty-doc.pl /usr/local/bin/
+          sudo chmod +x /usr/local/bin/betty-style.pl
+          sudo chmod +x /usr/local/bin/betty-doc.pl
+
+      - name: Check Betty Style
+        run: |
+          betty-style.pl 1-insertion_sort_list.c print_list.c *.h
+          betty-doc.pl 1-insertion_sort_list.c print_list.c *.h
+
+      - name: Build
+        run: |
+          gcc -Wall -Wextra -Werror -pedantic -std=gnu89 \
+            1-insertion_sort_list.c tests/1-main.c print_list.c -o insertion
+
+      - name: Test
+        run: |
+          ./insertion

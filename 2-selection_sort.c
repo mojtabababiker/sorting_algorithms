@@ -1,50 +1,37 @@
 #include "sort.h"
-
 /**
- * select - select the smallest number in the aray arr
- * @arr: the array of integer to search on
- * @i: the starting point
- * @size: the size of the array
- * Return: the index of the selceted number
+ * selection_sort - Sorts array of int
+ * @array: Array to be sorted
+ * @size: Size of the array
  */
-int selector(int *arr, size_t i, int size)
+void selection_sort(int *array, size_t size)
 {
-  int j = i;
-  int sml_index = i;
-  
-  for (j = i ; j < size ; j++)
-    {
-      if (arr[j] < arr[sml_index])
-	sml_index = j;
-    }
-  return (sml_index);
+	unsigned int i, j, min_idx;
+
+	for (i = 0; i < size - 1; i++)
+	{
+		min_idx = i;
+		for (j = i + 1; j < size; j++)
+		{
+			if (array[j] < array[min_idx])
+				min_idx = j;
+		}
+		if (min_idx != i)
+		{
+			swap(&array[min_idx], &array[i]);
+			print_array(array, size);
+		}
+	}
 }
 
 /**
- * selection_sort - sort an array of integer in ascending order
- *                  using Selection Sort algrothim
- * @arr: the array of integer to be sorted
- * @size: the size of the array
+ * swap - swaps two numbers
+ * @val1 : First no
+ * @val2 : Second no
  */
-
-void selection_sort(int *arr, size_t size)
+void swap(int *val1, int *val2)
 {
-  int i, _size;
-  int temp, sml_index;
-
-  _size  = size;
-  if (arr == NULL || size < 2)
-    return;
-
-  for (i = 0 ; i < _size ; i++)
-    {
-      sml_index = selector(arr, i, _size);
-      if (sml_index != i)
-	{
-	  temp = arr[sml_index];
-	  arr[sml_index] = arr[i];
-	  arr[i] = temp;
-	  print_array(arr, size);
-	}
-    }
+	int temp = *val1;
+	*val1 = *val2;
+	*val2 = temp;
 }
