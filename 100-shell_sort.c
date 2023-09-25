@@ -6,7 +6,7 @@ void swaper(int *arr, int index_1, size_t index_2, int gab);
  * shell_sort - sort an array of integer using the Shell Sort algrothim
  *              with knuth gab
  * @arr: the array of ineger to sort
- * @size: the size of the arr 
+ * @size: the size of the arr
  */
 
 void shell_sort(int *arr, size_t size)
