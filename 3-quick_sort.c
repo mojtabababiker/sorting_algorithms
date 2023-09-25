@@ -2,16 +2,17 @@
 
 /**
  * partitioning - partitioning the array according to a
- *	   	  randome selected number called pivot
+ * randome selected number called pivot
  * @arr: the array to be partitioned
  * @lo: the start of the array
  * @hi: the end of the array
+ * @size: the size of the array arr
  * Return: the index of the pivot
  */
 
 int partitioning(int *arr, int lo, int hi, size_t size)
 {
-	int head= lo, tail = lo - 1;
+	int head = lo, tail = lo - 1;
 	int pivot = arr[hi], temp = 0;
 
 	while (head <= hi)
@@ -53,7 +54,7 @@ void quickSort(int *arr, int lo, int hi, size_t size)
 
 /**
  * quick_sort - sort array of integer in ascending order
- * 		using Quick sort algrothim
+ * using Quick sort algrothim
  * @arr: array of integer that will be sorted
  * @size: the size of the array
  */
