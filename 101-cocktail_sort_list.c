@@ -1,7 +1,7 @@
 #include "sort.h"
 #include <stdbool.h>
 
-void swap_nodes(listint_t *node_1, listint_t *node_2, listint_t **list);
+
 
 /**
  * cocktail_sort_list - sort a linked list in ascending order using
